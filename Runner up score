@@ -1,0 +1,8 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    setn = set()
+    for i in arr:
+        setn.add(i)
+    sort = sorted(setn, reverse = True)
+    print(sort[1])
