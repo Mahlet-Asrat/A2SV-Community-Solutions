@@ -1,0 +1,17 @@
+class Solution(object):
+    def getConcatenation(self, nums):
+        k = len(nums)
+        for i in nums:
+            if len(nums) < 2 * k:
+                nums.append(i)
+        return nums
+
+#or 
+class Solution(object):
+    def getConcatenation(self, nums):
+        k = len(nums)
+        i = 0
+        while len(nums) < 2 * k:
+            nums.append(nums[i])
+            i += 1
+        return nums
