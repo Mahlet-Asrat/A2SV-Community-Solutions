@@ -1,0 +1,18 @@
+class Solution(object):
+    def interpret(self, command):
+        p = 0
+        final_str = ""
+        while p < len(command):
+            if command[p] == "G":
+                final_str += "G"
+                p += 1
+            elif command[p] == "(" and p + 1 < len(command) and command[p+1] == ")":
+                final_str += "o"
+                p += 2
+            elif command[p] == "(" and p + 3 < len(command) and command[p+1] == "a":
+                final_str += "al"
+                p += 4
+            else:
+                return final_str
+        return(final_str)
+        
