@@ -1,0 +1,13 @@
+class Solution(object):
+    def similarPairs(self, words):
+        count = 0
+        for i in range (len(words)):
+            liss = set(words[i])
+            for j in range (len(words)):
+                if set(words[j]) == liss:
+                    count += 1
+                else:
+                    continue
+
+        return((count - len(words))//2)
+        
