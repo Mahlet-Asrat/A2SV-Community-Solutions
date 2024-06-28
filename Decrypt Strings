@@ -1,0 +1,27 @@
+class Solution(object):
+    def freqAlphabets(self, s):
+        start_char = 'a'
+        start_num = 1
+        mapp = {}
+        p = 0
+        final_str= ""
+        for i in range (26):
+            if i < 9:
+                char = chr(ord(start_char) + i)
+                num = str(start_num + i)
+                mapp[char] = num
+            else:
+                char = chr(ord(start_char) + i)
+                num = str(start_num + i) + '#'
+                mapp[char] = num
+        reverse_map = {v: k for k, v in mapp.items()}
+        while p < len(s):
+            if  p+2 < len(s) and s[p+2] == "#":
+                final_str += reverse_map[s[p:p+3]]
+                p += 3
+            else:
+                final_str += reverse_map[s[p]]
+                p += 1
+        return(final_str)
+        
+        
