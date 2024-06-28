@@ -1,0 +1,8 @@
+class Solution(object):
+    def transpose(self, matrix):
+        liss = [[] for _ in range(len(matrix[0]))]
+        for i in range (len(matrix[0])):
+            for j in range (len(matrix)):
+                liss[i].append(matrix[j][i])
+        return liss
+        
