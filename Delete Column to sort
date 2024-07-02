@@ -1,0 +1,35 @@
+class Solution(object):
+    def minDeletionSize(self, strs):
+        count = 0
+        n = len(strs)
+        for i in range(len(strs[0])):
+            p = 0
+            val = True
+            while p < len(strs) -1:
+                if (strs[p+1][i] is not None) and strs[p][i] <= strs[p+1][i]:
+                    p += 1
+                else:
+                    val = False
+                    break
+            if val:
+                continue
+            else:
+                count += 1
+        return(count)
+#or 
+def deletecol(strs):
+    count = 0
+    n = len(strs)
+    for i in range(len(strs[0])):
+        p = 0
+        col= [] * n
+        while p < len(strs):
+            col.append(strs[p][i])
+            p += 1
+        if sorted(col) == col:
+            continue
+        else:
+            count += 1
+    print(count)
+            
+deletecol(['a', 'b'])  #beats 12%
