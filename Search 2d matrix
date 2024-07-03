@@ -1,0 +1,15 @@
+class Solution:
+    def searchMatrix(self, matrix, target):
+        for row in matrix:
+            iI, jI = 0, len(row) - 1
+    
+            while iI <= jI:
+                jM = (iI + jI) // 2
+                val = row[jM]
+    
+                if val == target:
+                    return True
+                elif val < target:
+                    iI = jM + 1
+                else:
+                    jI = jM - 1
