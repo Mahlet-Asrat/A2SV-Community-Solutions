@@ -1,0 +1,38 @@
+class Solution(object):
+    def validMountainArray(self, arr):
+        max_index = arr.index(max(arr))
+        val = True
+        if max_index == 0 or max_index == len(arr) - 1:
+            return False
+        for i in range (0, max_index):
+            if arr[i] - arr[i+1] < 0:
+                continue
+            else:
+                return False
+        for i in range (max_index, len(arr) - 1):
+            if arr[i] - arr[i+1] > 0:
+                continue
+            else:
+                return False 
+
+        return val
+#or
+
+def valid_mount(arr):
+    max_index = arr.index(max(arr))
+    val = True
+    if max_index == 0 or max_index == len(arr) - 1:
+        return False
+    for i in range (len(arr) -1):
+        if i < max_index:
+            if arr[i] - arr[i+1] < 0:
+                continue
+            else:
+                return False
+        else:
+            if arr[i] - arr[i+1] > 0:
+                continue
+            else:
+                return False
+    return val
+valid_mount([3,5,5])
