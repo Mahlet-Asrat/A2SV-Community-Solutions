@@ -1,0 +1,30 @@
+def bishop(matrix):
+    n, m = len(matrix), len(matrix[0])
+    max_sum = 0
+
+    for i in range(n):
+        for j in range(m):
+            sum1 = sum2 = sum3 = sum4 = 0
+            r, c = i, j
+            while r < n and c < m:
+                sum1 += matrix[r][c]
+                r += 1
+                c += 1
+            r, c = i, j
+            while 0 <= r < n and 0 <= c < m:
+                sum2 += matrix[r][c]
+                r -= 1
+                c -= 1
+            r, c = i, j
+            while 0 <= r < n and 0 <= c < m:
+                sum3 += matrix[r][c]
+                r -= 1
+                c += 1
+            r, c = i, j
+            while 0 <= r < n and 0 <= c < m:
+                sum4 += matrix[r][c]
+                r += 1
+                c -= 1
+            max_sum = max(max_sum, sum1 + sum2 + sum3 + sum4 - 3 * matrix[i][j])
+
+    return max_sum
