@@ -1,0 +1,20 @@
+class Solution(object):
+    def replaceElements(self, arr):
+        max_elem = -1
+        n = len(arr) 
+        for i in range (n -1, -1, -1):
+            temp = arr[i]
+            arr[i] = max_elem
+            max_elem = max(temp, max_elem)
+
+        return(arr)
+#or 
+def replace (arr):
+
+    for i in range (len(arr)):
+        if i == len(arr) - 1:
+            arr[i] = -1
+        else:
+            arr [i] = max(arr[i + 1:])
+    return arr
+replace([400]) # time limit exceeds for large sized arrays
