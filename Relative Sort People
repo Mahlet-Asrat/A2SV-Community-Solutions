@@ -1,0 +1,21 @@
+class Solution(object):
+    def relativeSortArray(self, arr1, arr2):
+        is_arr2 = []
+        not_arr2 = [ ]
+        for i in arr1:
+            if i in arr2:
+                is_arr2.append(i)
+            else:
+                not_arr2.append(i)
+        not_arr2.sort()
+        def custom(element):
+            return (arr2.index(element))
+        
+        is_arr2.sort(key=custom)
+        if not_arr2 is not None:
+            return (is_arr2 + not_arr2)
+        else:
+            return is_arr2
+        
+     
+        
