@@ -1,0 +1,20 @@
+class Solution(object):
+    def reductionOperations(self, nums):
+       count = 0
+       nums_sorted = sorted(set(nums), reverse= True)
+       max_elem = max(nums) 
+       max_elem_index = nums.index(max_elem)
+       
+       if list(set(nums)) == nums_sorted[-1]:
+           return count
+       while list(set(nums)) != [nums_sorted[-1]] : 
+           for i in nums_sorted:
+               if i < max_elem:
+                   nums[max_elem_index] = i
+                   max_elem = max(nums)
+                   max_elem_index = nums.index(max_elem)
+                   count += 1
+                   break
+               else:
+                   continue
+       return(count)
