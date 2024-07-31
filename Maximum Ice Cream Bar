@@ -1,0 +1,12 @@
+class Solution(object):
+    def maxIceCream(self, costs, coins):
+        costs.sort()
+        p = 0
+        summ = 0
+        if costs[0] > coins:
+            return p
+        else:
+            while p < len(costs) and summ + costs[p] <= coins:
+                summ +=  costs[p]
+                p += 1   
+        return p
