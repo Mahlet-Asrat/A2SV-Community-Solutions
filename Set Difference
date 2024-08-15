@@ -1,0 +1,16 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n = int(input())
+english_subscribers = set(map(int, input().split()))
+
+m = int(input())
+french_subscribers = set(map(int, input().split()))
+
+eng_none = []
+
+for i in  english_subscribers:
+    if i not in french_subscribers:
+        eng_none.append(i)
+
+
+print(len(eng_none))
