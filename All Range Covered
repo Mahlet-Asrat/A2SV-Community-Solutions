@@ -1,0 +1,11 @@
+class Solution(object):
+    def isCovered(self, ranges, left, right):
+        liss = [num for num in range (left, right + 1)]
+        for i in ranges:
+            start, end = i
+            for j in range(start, end + 1):
+                if j in liss:
+                    liss.remove(j)
+        
+        return not liss
+        
