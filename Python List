@@ -1,0 +1,32 @@
+if __name__ == '__main__':
+    N = int(input())
+    listt = []
+    
+    for i in range(N):
+        liss = list(input().split())
+        if liss[0] == 'insert':
+            pos , num = int(liss[1]), int(liss[2])
+            listt.insert(pos, num)
+        elif liss[0] == 'print':
+            print(listt)
+        elif liss[0] == 'remove':
+            num = int(liss[1])
+            listt.remove(num)
+        elif liss[0] == 'append':
+            num = int(liss[1])
+            listt.append(num)
+        elif liss[0] == 'sort':
+            listt.sort()
+        elif liss[0] == 'pop':
+            if listt is not None:
+                n = len(listt)
+                listt = listt[:n-1]
+        elif liss[0] == 'reverse':
+            if listt is not None:
+                listt = listt[::-1]
+        else:
+            continue
+            
+        
+        
+    
