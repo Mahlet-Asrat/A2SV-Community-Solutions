@@ -1,0 +1,23 @@
+from functools import cmp_to_key
+class Solution(object):
+    def largestNumber(self, nums):
+
+        if set(nums) == {0}:
+            return "0"
+            
+        nums = [str(num) for num in nums]
+        
+        def compare(a, b):
+            if a + b > b + a:
+                return -1
+            elif a + b < b + a:
+                return 1
+            else:
+                return 0
+    
+        nums.sort( key = cmp_to_key(compare))
+    
+        largest_num = ''.join(nums)
+        
+        return largest_num
+        
