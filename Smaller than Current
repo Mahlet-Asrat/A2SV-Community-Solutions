@@ -1,0 +1,14 @@
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+
+        sorted_nums = sorted(nums)
+        count_small = {}
+
+        for idx , num in enumerate(sorted_nums):
+
+            if num not in count_small:
+                count_small[num] = idx
+
+        return [count_small[num] for num in nums]
+
+        
