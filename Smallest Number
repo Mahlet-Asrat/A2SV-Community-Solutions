@@ -1,0 +1,28 @@
+class Solution(object):
+    def smallestNumber(self, num):
+
+        def compare(a,b):
+            if a + b > b + a:
+                return -1
+            elif a + b < b + a:
+                return 1
+            else:
+                return 0
+        
+        if num < 0:
+            str_num = str(-num)
+            sorted_num = sorted(str_num, reverse = True)
+            ans =  '-' +''.join(sorted_num)
+            return(int(ans))
+        else:
+            str_num = str(num)
+            list_num = [i for i in str_num]
+            count_zero = list_num.count('0')
+            for _ in range (count_zero):
+                list_num.remove('0')
+            list_num.sort()
+            for _ in range (count_zero):
+                list_num.insert(1, ("0"))
+            ans = "".join(list_num)
+            return(int(ans))
+        
